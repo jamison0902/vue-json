@@ -1,0 +1,43 @@
+{
+    "receitas":[
+        {
+            "titulo": "Isca de Frango Bêbada",
+            "imagem": "img/isca.jpg",
+            "preparo": "Amasse o alho com o sal e em um recipiente, tempere as iscas junte a páprica com a pinga e regue a carne. Passe os pedaços de frango pelos sucrilhos e frite-os em óleo bem quente.",
+            "ingredientes":[
+                {
+                    "item1":"1 peito de frango cortado em tiras.",
+                    "item2":"Óleo para fritar.",
+                    "item3":"1 xícara de sucrilhos sem açúcar esmigalhados.",
+                    "item4":"Alho, sal e páprica a gosto."          
+                }
+            ]
+        },
+        {
+            "titulo": "Frango Rolê Recheado",
+            "imagem": "img/role.jpg",
+            "preparo": "Abra os filés de coxa e sobrecoxa e tempere com sal e pimenta. Divida a calabresa, o bacon, a cenoura e o pimentão entre eles e enrole como rocamboles. asse o bacon entre eles e prenda com palito de dente.",
+            "ingredientes":[
+                {
+                    "item1":"6 filés de coxa e sobrecoxa de frango",
+                    "item2":"Sal, pimenta-do-reino, salsinha picada a gosto",
+                    "item3":"1 gomo de linguiça calabresa em tiras",
+                    "item4":"200g de bacon em tiras"          
+                }
+            ]
+        },
+        {
+            "titulo": "Frango Encapado",
+            "imagem": "img/encapado.jpg",
+            "preparo": "Coloque a farinha num saco plástico junto com o sal e pimenta e coloque o frango, agitando bem o saco até que estejam recobertos de farinha. Misture as migalhas, mostarda, salsinha, sal e pimenta.",
+            "ingredientes":[
+                {
+                    "item1":"4 peitos de frango desossados e sem pele.",
+                    "item2":"2 colheres (sopa) de farinha de trigo",
+                    "item3":"Sal e pimenta-do-reino a gosto",
+                    "item4":"1 xícara (chá) de migalhas de pão fresco"          
+                }
+            ]
+        }
+    ]
+}

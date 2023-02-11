@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ordenação de Array</title>
+
+        <!--CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" >
+        
+        <!-- JS -->
+        <script src= "js/ordenacao.js" ></script>		
+    </head>
+
+    <body>
+        <div class="container w-25 py-4">
+            <h1>Ordenando Valores</h1>
+            <form action="" method="">                
+                <div class="mb-3 mt-3">
+                    <label for="valor" class="form-label" >Valor:</label>
+                    <input type="text" class="form-control"  id="valor" placeholder="Digite um valor" name="valor" required>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="add()">Adicionar</button>	
+
+                <hr/>
+
+                <div class="mb-3 mt-3">                    
+                    <select name="metodo" id="metodo"  class="form-select">                        
+                        <option value="bubble_sort" selected>Bubble Sort</option>
+                        <option value="selection_sort">Selection Sort</option>
+                        <option value="quick_sort">Quick Sort</option>
+                    </select>
+                </div>
+
+                <button type="button" class="btn btn-primary" onclick="ordernar()">Ordernar</button>
+                <button type="button" class="btn btn-primary" onclick="misturar()">Misturar</button>
+                <button type="button" class="btn btn-primary" onclick="limpar()">Limpar</button>		
+                <hr/>   
+                
+                <div class="elementos">
+                    <ul id="valores">
+                    </ul>
+                </div>
+            </form>
+        </div>					
+        
+    </body>
+
+</html>

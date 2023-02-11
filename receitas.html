@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Catálogo de Receitas</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+    </head>
+    <body>
+
+        <main class="d-flex flex-column min-vh-100 bg-light">
+            <div class="album py-5">
+                <div class="container">            
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="pnlCatalogo">                        
+
+                    </div>
+                </div>
+            </div>
+        </main>  
+
+    </body>
+
+    <script type="text/javascript" >
+       
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                var jsonDoc = JSON.parse(this.responseText);
+                var texto='';
+                jsonDoc.receitas.forEach(function(json) {
+                   texto+=getCard(json)
+                });                
+                document.getElementById('pnlCatalogo').innerHTML+="<div class='card-title w-100'><h1>Catálogo de Receitas</h1></div>"+texto;
+            }
+        }
+        xmlhttp.open('GET','json/receitas.json',true);
+        xmlhttp.send();
+        
+        getListaIngredientes = (json) => {
+            var obj = Object.keys(json[0]);            
+            
+            var lista = obj.map(function(elem){
+                //console.log(json[0][elem]);
+                return"<li>"+json[0][elem]+"</li>";               
+            }); 
+            
+            return lista.join('');
+        }
+
+        getCard = (json) => {
+            var lista = getListaIngredientes(json.ingredientes);
+            var card = `
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img  class="bd-placeholder-img card-img-top" width="100%" height="225" src="${json.imagem}" />                                
+                                <div class="card-body">
+                                    <h4>${json.titulo}</h4>
+                                    <div class='card-text'>
+                                        <ul>${lista}</ul>
+                                    </div>
+                                    <hr>
+                                    <p class="card-text">${json.preparo}</p>                                    
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">Visualizar</button>                              
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            `;
+            return card;
+        } 
+        
+    </script>
+</html>

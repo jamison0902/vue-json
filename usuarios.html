@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Consumo API REST</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+        <!-- development version, includes helpful console warnings -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>        
+    </head>
+    <body class="container">
+         <div class="container-fluid" id="usuarios">
+            <div class="row">
+                <div class='card-title'>
+                    <h1>Usuários de Teste via REST</h1>
+                    <cite>Os usuários deste exemplo são fornecidos pela API de teste reqres.in</cite>                        
+                </div>                     
+                
+                <div class="card col-3 p-2 m-3" v-for="(user,index) in users" :key="index">
+                    <div class="card-body">
+                        <img  class="card-img-top"  v-bind:src="user.avatar" />
+                        <h4 class="card-title">{{user.first_name}} {{user.last_name}}</h4>
+                        <p class="card-text">{{user.email}}</p>
+                    </div>
+                </div> 
+            </div>
+         </div>               
+    </body>
+
+    <script text="tex/javascript">
+        new Vue({
+            el: '#usuarios',
+            data () {
+                return {
+                    users: null
+                }
+            },
+            mounted(){
+                axios
+                .get('https://reqres.in/api/users?per_page=9')
+                .then(response => (this.users = response.data.data))
+            }
+        })
+
+    </script>
+</html>
